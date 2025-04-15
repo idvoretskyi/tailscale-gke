@@ -1,0 +1,17 @@
+project_id = "your-gcp-project-id"
+region = "us-central1"
+zone = "us-central1-a"  # Using a specific zone for zonal cluster (cheaper than regional)
+cluster_name = "tailscale-gke-cluster"
+network = "default"
+subnetwork = "default"
+machine_type = "e2-small"  # Cost-effective machine type
+min_node_count = 1
+max_node_count = 2
+use_preemptible_nodes = true  # Enable preemptible/spot instances for significant cost savings
+
+# Security-related options
+private_cluster = false  # Set to true for enhanced network security
+master_ipv4_cidr_block = "172.16.0.0/28"  # Only needed if private_cluster is true
+
+# Tailscale configuration
+tailscale_auth_key = "tskey-auth-abcdefghijkl" # Replace with your actual Tailscale auth key
